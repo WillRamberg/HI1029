@@ -10,7 +10,7 @@ public class U6 {
         String test = "BECAD";
         String solved = solver.sort(test);
         System.out.println("Solution: " + solved + " Amount of turns: " + solved.length());
-        test = "ADEBC";
+        test = "EABCD";
         solved = solver.sort(test);
         System.out.println("Solution: " + solved + " Amount of turns: " + solved.length());
     }
@@ -40,6 +40,7 @@ public class U6 {
 
             switchLeftSpots(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "b"));
+            switchLeftSpots(current.letters);
             placeRightToLeft(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "s"));
 
