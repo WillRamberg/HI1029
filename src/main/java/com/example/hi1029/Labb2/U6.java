@@ -40,15 +40,13 @@ public class U6 {
 
             switchLeftSpots(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "b"));
-            switchLeftSpots(current.letters);
+            switchLeftSpots(current.letters); //backtrack
             placeRightToLeft(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "s"));
 
             current= queue.poll();
         }
-
         return current.path;
-
     }
 
     private boolean solved(char[] letters){

@@ -59,10 +59,6 @@ public class Airport {
         totalDepPlanes = 0;
     }
 
-    public void runSim(){
-        runSim(10);
-    }
-
     public void runSim(float years){
         runSim(5, years);
     }
@@ -100,8 +96,7 @@ public class Airport {
 
     private boolean handleArrival(){
         if(incoming.peek() != null){
-            var plane = incoming.poll();
-            var wait = timestamp - plane.timestamp;
+            var wait = timestamp - incoming.poll().timestamp;
             if(wait > maxArrWaitTime)
                 maxArrWaitTime = wait;
             queueTimeLeft = 20;
@@ -112,8 +107,7 @@ public class Airport {
 
     private void handleDeparture(){
         if(departing.peek() != null){
-            var plane = departing.poll();
-            var wait = timestamp - plane.timestamp;
+            var wait = timestamp - departing.poll().timestamp;
             if(wait > maxDepWaitTime)
                 maxDepWaitTime = wait;
             queueTimeLeft = 20;
