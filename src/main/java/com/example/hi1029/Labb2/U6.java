@@ -7,11 +7,8 @@ public class U6 {
 
     public static void main(String[] args) {
         U6 solver = new U6();
-        String test = "BECAD";
+        String test = "BAECD";
         String solved = solver.sort(test);
-        System.out.println("Solution: " + solved + " Amount of turns: " + solved.length());
-        test = "EABCD";
-        solved = solver.sort(test);
         System.out.println("Solution: " + solved + " Amount of turns: " + solved.length());
     }
 
@@ -41,6 +38,7 @@ public class U6 {
             switchLeftSpots(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "b"));
             switchLeftSpots(current.letters); //backtrack
+
             placeRightToLeft(current.letters);
             queue.offer(new State(current.letters.clone(), current.path + "s"));
 

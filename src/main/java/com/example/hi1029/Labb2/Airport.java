@@ -8,7 +8,7 @@ public class Airport {
 
     public static void main(String[] args) {
         Airport arn = new Airport();
-        arn.runSim(10);
+        arn.runSim(5, 10);
         System.out.println("incoming avg wait time: " + arn.getAverageArrWaitTime());
         System.out.println("outgoing avg wait time: " + arn.getAverageDepWaitTime());
         System.out.println("incoming max wait time: " + arn.maxArrWaitTime);
@@ -59,10 +59,6 @@ public class Airport {
         totalDepPlanes = 0;
     }
 
-    public void runSim(float years){
-        runSim(5, years);
-    }
-
     public void runSim(int tickrate, float years){
         this.tickrate = tickrate;
         int toHour = 60/tickrate;
@@ -96,7 +92,7 @@ public class Airport {
 
     private boolean handleArrival(){
         if(incoming.peek() != null){
-            var wait = timestamp - incoming.poll().timestamp;
+            int wait = timestamp - incoming.poll().timestamp;
             if(wait > maxArrWaitTime)
                 maxArrWaitTime = wait;
             queueTimeLeft = 20;
