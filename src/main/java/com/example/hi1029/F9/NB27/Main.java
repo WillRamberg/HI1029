@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-            BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\William\\IdeaProjects\\HI1029\\HI1029\\src\\main\\java\\com\\example\\hi1029\\F9\\NB27\\cars.txt"));
+            BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\rambe\\IdeaProjects\\HI1029\\HI1029\\src\\main\\java\\com\\example\\hi1029\\F9\\NB27\\cars.txt"));
             ArrayList<Car> cars = new ArrayList<>();
             while(true){
                 String line = in.readLine();
@@ -34,7 +34,7 @@ public class Main {
 
     private static void saveToFile(ArrayList<Car> cars){
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Users\\William\\IdeaProjects\\HI1029\\HI1029\\src\\main\\java\\com\\example\\hi1029\\F9\\NB27\\carsSorted.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Users\\rambe\\IdeaProjects\\HI1029\\HI1029\\src\\main\\java\\com\\example\\hi1029\\F9\\NB27\\carsSorted.txt"));
             for (Car car : cars) {
                 String carStr = car.getCarBrand() + " " + car.getYear() + " " + car.getMilage();
                 out.write(carStr);
