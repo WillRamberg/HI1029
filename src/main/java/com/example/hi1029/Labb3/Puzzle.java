@@ -6,11 +6,11 @@ public class Puzzle {
         var puzzle = new Puzzle(3, 3);
         puzzle.solve();
 
-        for(int i = 1; i < 6; i++)
+        /*for(int i = 1; i < 6; i++)
             for(int j = 1; j < 6; j++){
                 Puzzle puzz = new Puzzle(i, j);
                 puzz.solve();
-            }
+            }*/
     }
 
 
@@ -89,7 +89,7 @@ public class Puzzle {
     private void solve(int piecesPlaced, int rowIndex, int columnIndex){
 
         if(piecesPlaced == 8) {
-            //System.out.println(this);
+            System.out.println(this);
             nrOfSolutions++;
             return;
         }
