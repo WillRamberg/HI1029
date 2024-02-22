@@ -3,7 +3,7 @@ package com.example.hi1029.Labb3;
 public class Puzzle {
 
     public static void main(String[] args) {
-        var puzzle = new Puzzle(3, 3);
+        var puzzle = new Puzzle(1, 1);
         puzzle.solve();
 
         /*for(int i = 1; i < 6; i++)
@@ -99,7 +99,7 @@ public class Puzzle {
 
         for(int column = columnIndex; column < 5; column++){
             for(int typeOfRotation = 0; typeOfRotation < 4; typeOfRotation++){
-                var piece = new Piece(column, rowIndex, typeOfRotation);
+                Piece piece = new Piece(column, rowIndex, typeOfRotation);
                 if(canPlace(piece)){
                     place(piece);
                     solve(piecesPlaced + 1, rowIndex, column + 1);
