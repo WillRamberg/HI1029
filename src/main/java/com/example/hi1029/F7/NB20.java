@@ -2,7 +2,7 @@ package com.example.hi1029.F7;
 
 public class NB20 {
     public static void main(String[] args) {
-        NB20 test = new NB20(4);
+        NB20 test = new NB20(1);
         test.addQueen(1);
     }
 

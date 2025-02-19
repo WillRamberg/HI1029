@@ -10,6 +10,7 @@ public class NB21 {
         min.add("cactus");
         min.add("evolve");
         min.add("gatorade");
+        System.out.println(min.printTree());
         System.out.println(min.toStringPostOrder());
         System.out.println(min.numberOfLeaves());
         System.out.println(min.height());
