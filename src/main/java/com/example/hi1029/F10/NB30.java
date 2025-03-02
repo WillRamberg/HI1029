@@ -40,7 +40,7 @@ public class NB30<E extends Comparable<E>> {
 
     private void resize(){
         int newSize = data.length * 2;
-        Arrays.copyOf(data, newSize);
+        data = Arrays.copyOf(data, newSize);
     }
 
 
