@@ -1,4 +1,4 @@
-package com.example.hi1029.Tenta.test;
+package com.example.hi1029.Tenta.T2403.upg5;
 
 public class BinarySearchTree<E extends Comparable<E>> {
 
@@ -16,8 +16,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     private Node<E> root;
-    private E deletedData;
-
     public BinarySearchTree(){
         root=null;
     }
@@ -29,7 +27,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
             inOrder(node.right, sb);
         }
     }
-
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -63,38 +60,58 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public int height(){
+        if(root==null)
+            return 0;
         return height(root);
     }
 
-    private int height(Node<E> node) {
-        if(node==null) return 0;
+    private int height(Node<E> node){
+        if(node==null)
+            return 0;
         return 1 + Math.max(height(node.left),height(node.right));
     }
 
+
     public int height(E data){
-        return height(findNode(data, root));
-    }
-    private Node<E> findNode(E target, Node<E> node){
-        if( node==null)
-            return null;
-        if(target.compareTo(node.data)==0)
-            return node;
-        if(target.compareTo(node.data)<0)
-            return findNode(target,node.left);
-        return findNode(target,node.right);
-    }
-    public boolean siblings(E data1, E data2){
-        if(data1.compareTo(data2)==0) return false;
-        if(data1.compareTo(data2)<0) return siblings(data1, data2, root);
-        return siblings(data2,data1,root);
+        if(data == null || root == null)
+            return 0;
+        Node<E> current = root;
+        int nrOfSteps=1;
+        while(current!=null){
+            if(data.compareTo(current.data) == 0){
+                return nrOfSteps;
+            }
+            if(data.compareTo(current.data)<0) {
+                current = current.left;
+                nrOfSteps++;
+            }
+            if(data.compareTo(current.data)>0) {
+                current = current.right;
+                nrOfSteps++;
+            }
+        }
+        return 0;
     }
 
-    private boolean siblings(E data1, E data2, Node<E> node) {//förutsätter data1<data2
-        if(node==null) return false;
-        if(data2.compareTo(node.data)<0) return siblings(data1,data2,node.left);
-        if(data1.compareTo(node.data)>0) return siblings(data1,data2,node.right);
-        if(node.left==null||node.right==null) return false;
-        if(data1.compareTo(node.left.data)==0&&data2.compareTo(node.right.data)==0) return true;
+    public boolean siblings(E data1, E data2){
+        Node<E> node = root;
+        Node<E> parent = root;
+        while(node!=null){
+            if(node.data == data1 || node.data == data1)
+                break;
+            if(data1.compareTo(node.data)<0){
+                parent = node;
+                node = node.left;
+            }
+            if(data1.compareTo(node.data)>0){
+                parent = node;
+                node = node.right;
+            }
+        }
+        if((parent.right.data.compareTo(data1)==0 && parent.left.data.compareTo(data2)==0) || (parent.right.data.compareTo(data2)==0 && parent.left.data.compareTo(data1)==0)){
+            return true;
+        }
         return false;
     }
+
 }

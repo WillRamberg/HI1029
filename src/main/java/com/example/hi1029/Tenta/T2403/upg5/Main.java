@@ -1,4 +1,5 @@
-package com.example.hi1029.Tenta.test;
+package com.example.hi1029.Tenta.T2403.upg5;
+
 
 public class Main {
 
@@ -7,8 +8,8 @@ public class Main {
         BinarySearchTree<String> bst = new BinarySearchTree<>();
         buildTree(bst,new String[] {"H", "B", "N", "A", "E", "C", "F", "D", "P", "M"});
         System.out.println(bst.height());
-        //System.out.println(bst.height("E"));
-        //System.out.println(bst.siblings("M","M"));
+        System.out.println(bst.height("E"));
+        System.out.println(bst.siblings("P","N"));
     }
 
     private static void buildTree(BinarySearchTree<String> bst, String[] strings) {
